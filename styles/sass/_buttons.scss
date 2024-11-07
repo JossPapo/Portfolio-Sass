@@ -1,0 +1,29 @@
+@function darkenBorder($color) {
+    @return darken($color, 20%)
+}
+
+.btn {
+    padding: 15px 30px;
+    border: solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all ease 0.3s;
+
+    &.btn:hover {
+        transform: translateY(-10px);
+    }
+
+    &.btn-primary {
+        background-color: $primary;
+        color: $white;
+        border-color: darkenBorder($primary);
+
+        &:hover {
+            background-color: $white;
+            color: $primary;
+        }
+    }
+}
