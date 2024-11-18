@@ -19,18 +19,49 @@ main {
 
 .section-display {
   display: flex;
+  margin-bottom: 100px;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .section-display.right-text-content {
+    flex-direction: row-reverse;
+  }
+  .section-display.left-text-content {
+    flex-direction: row;
+  }
 }
 .section-display .text-content {
   flex: 1;
 }
 .section-display .text-content .title {
-  font-size: 50px;
+  font-size: 30px;
   line-height: 1.1;
   font-weight: 700;
 }
 .section-display .text-content .paragraph {
   font-size: 20px;
   line-height: 40px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .section-display .text-content .title {
+    font-size: 50px;
+  }
+  .section-display .text-content .paragraph {
+    text-align: left;
+  }
+}
+.section-display .text-content .action-div {
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+}
+@media screen and (min-width: 768px) {
+  .section-display .text-content .action-div {
+    flex-direction: row;
+    gap: 2%;
+    margin: 1%;
+  }
 }
 .section-display .illustration {
   flex: 1;
@@ -38,7 +69,38 @@ main {
 .section-display .illustration img {
   max-width: 100%;
   display: block;
-  margin: auto;
+  margin: 8%;
+}
+@media screen and (min-width: 768px) {
+  .section-display .illustration img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.competences-icons,
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 50px;
+  margin: 5%;
+}
+.competences-icons i:hover,
+.socials i:hover {
+  cursor: pointer;
+  color: #949e0b;
+  transition: all 0.5s ease;
+  transform: scale(1.5);
+}
+
+@media screen and (min-width: 768px) {
+  .competences-icons,
+  .socials {
+    font-size: 70px;
+    gap: 60px;
+  }
 }
 .btn {
   padding: 15px 30px;
@@ -54,11 +116,11 @@ main {
   transform: translateY(-10px);
 }
 .btn.btn-primary {
-  background-color: #55198b;
+  background-color: #062657;
   color: #fff;
-  border-color: #200935;
+  border-color: black;
 }
 .btn.btn-primary:hover {
   background-color: #fff;
-  color: #55198b;
+  color: #062657;
 }/*# sourceMappingURL=main.css.map */

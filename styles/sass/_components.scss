@@ -1,11 +1,23 @@
 .section-display {
     display: flex;
+    margin-bottom: 100px;
+    flex-direction: column;
+
+    @media screen and (min-width:768px) {
+        &.right-text-content {
+            flex-direction: row-reverse;
+        }
+
+        &.left-text-content {
+            flex-direction: row;
+        }
+    }
 
     .text-content {
         flex: 1;
 
         .title {
-            font-size: 50px;
+            font-size: 30px;
             line-height: 1.1;
             font-weight: 700;
         }
@@ -13,6 +25,33 @@
         .paragraph {
             font-size: 20px;
             line-height: 40px;
+            text-align: center;
+        }
+
+        @media screen and (min-width:768px) {
+            .title {
+                font-size: 50px;
+            }
+
+
+            .paragraph {
+                text-align: left;
+            }
+        }
+
+        .action-div {
+            display: flex;
+            flex-direction: column;
+            margin: 10%;
+        }
+
+        @media screen and (min-width:768px) {
+            .action-div {
+                flex-direction: row;
+                gap: 2%;
+                margin: 1%;
+
+            }
         }
     }
 
@@ -22,9 +61,40 @@
         img {
             max-width: 100%;
             display: block;
-            margin: auto;
+            margin: 8%;
+        }
+
+        @media screen and (min-width:768px) {
+            img {
+                max-width: 100%;
+                display: block;
+                margin: auto;
+            }
         }
     }
+}
 
-    .action-div {}
+.competences-icons,
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 50px;
+    margin: 5%;
+
+    i:hover {
+        cursor: pointer;
+        color: $secondary;
+        transition: all 0.5s ease;
+        transform: scale(1.5);
+    }
+}
+
+@media screen and (min-width:768px) {
+
+    .competences-icons,
+    .socials {
+        font-size: 70px;
+        gap: 60px;
+    }
 }
