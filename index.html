@@ -12,12 +12,30 @@
 </head>
 
 <body>
-    <header class="header">
-
+    <header class="header-website">
+        <nav class="navbar">
+            <div class="logo">
+                <!--<img src="img/logo.png" alt="logo Josselin Pierre"> -->
+                <span class="logo-text">Joss</span>
+            </div>
+            <div class="menu">
+                <label class="btn btn-secondary menu-input-label" for="menu-toggle"><i
+                        class="fa-solid fa-bars"></i></label>
+                <input type="checkbox" id="menu-toggle" class="menu-input">
+                <div class="dropdown-menu">
+                    <ul class="nav-links">
+                        <li class="nav-link"><a href="#accueil">Accueil</a></li>
+                        <li class="nav-link"><a href="#competences">Compétences</a></li>
+                        <li class="nav-link"><a href="#realisations">Réalisations</a></li>
+                        <li class="nav-link">Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="section-display left-text-content">
+        <section id="accueil" class="section-display left-text-content">
             <article class="text-content">
                 <h1 class="title">Josselin Pierre</h1>
                 <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique tempora harum
@@ -27,13 +45,18 @@
                     eos
                     eius.</p>
                 <div class="socials">
-                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/josselin-pierre-96886894/"><i
+                            class="fa-brands fa-linkedin"></a></i>
                 </div>
                 <div class="action-div">
                     <button class="btn btn-primary">Contact</button>
-                    <button class="btn btn-primary">Mon CV</button>
-
-                </div>
+                    <button id="view-pdf" class="btn btn-primary">Mon CV</button>
+                    <div id="pdf-modal" class="modal hidden">
+                        <div class="modal-content">
+                            <button id="close-modal" class="close-btn">&times;</button>
+                            <iframe id="pdf-frame" src="" width="100%" height="100%" title="Visionneuse PDF"></iframe>
+                        </div>
+                    </div>
 
             </article>
 
@@ -41,7 +64,7 @@
                 <img src="/img/presentationBis.jpg.png" alt="worker">
             </div>
         </section>
-        <section class="section-display right-text-content">
+        <section id="competences" class="section-display right-text-content">
 
             <article class="text-content">
                 <h2 class="title">Mes compétences</h2>
@@ -62,7 +85,7 @@
                 <img src="/img/work2.png" alt="competences">
             </div>
         </section>
-        <section class="section-display left-text-content">
+        <section id="realisations" class="section-display left-text-content">
             <article class="text-content">
                 <h2 class="title">Mes réalisations</h2>
                 <p class="paragraph">
@@ -85,6 +108,8 @@
     <footer>
 
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

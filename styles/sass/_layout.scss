@@ -1,13 +1,26 @@
 @import "variables";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: $dark;
     color: $white;
-    margin: 0 60px;
+    margin: 0 5px;
+
+
+    @media screen and (min-width:768px) {
+        margin: 0 60px;
+    }
 }
 
 main {
-    margin: 0 30px;
+    margin: 0 5px;
+
+    @media screen and (min-width:768px) {
+        margin: 0 30px;
+    }
 }
 
 .header {

@@ -41,16 +41,14 @@
 
         .action-div {
             display: flex;
-            flex-direction: column;
+            gap: 5%;
             margin: 10%;
         }
 
         @media screen and (min-width:768px) {
             .action-div {
-                flex-direction: row;
                 gap: 2%;
                 margin: 1%;
-
             }
         }
     }
@@ -61,7 +59,7 @@
         img {
             max-width: 100%;
             display: block;
-            margin: 8%;
+            margin: auto;
         }
 
         @media screen and (min-width:768px) {
