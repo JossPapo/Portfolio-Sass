@@ -11,7 +11,15 @@
         padding-top: 20px;
         padding-bottom: 20px;
 
+        .logo img {
+            padding-left: 15%;
+            max-width: 40%;
+            max-height: 40%;
+        }
+
         .menu {
+            padding-right: 10px;
+
             .menu-input {
                 display: none;
 

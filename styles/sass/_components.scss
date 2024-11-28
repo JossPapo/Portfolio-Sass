@@ -76,9 +76,13 @@
 .socials {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
     font-size: 50px;
     margin: 5%;
+
+    i {
+        color: $white;
+    }
 
     i:hover {
         cursor: pointer;
