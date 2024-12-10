@@ -140,6 +140,11 @@ main {
   transition: all ease 0.3s;
   display: inline-block;
   width: 50%;
+  text-align: center;
+}
+.btn a {
+  text-decoration: none;
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .btn {
@@ -151,6 +156,9 @@ main {
 }
 .btn.btn:hover {
   transform: translateY(-10px);
+}
+.btn.btn:hover a {
+  color: #062657;
 }
 .btn.btn-primary {
   background-color: #062657;

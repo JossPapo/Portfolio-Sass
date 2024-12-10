@@ -1,0 +1,60 @@
+/*Initialisation serveur*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-image {
+    width: 80%;
+    max-width: 100%;
+}
+
+.card {
+    width: 20%;
+}
+
+figcaption {
+    height: 0;
+    transition-duration: 1s;
+}
+
+figure:hover figcaption {
+    height: 100%;
+    padding: 80px;
+}
+
+/*ANIMATION LOGO*/
+
+.logo {
+    width: 25px;
+}
+
+/* Style du cercle */
+.circle {
+    width: 50px;
+    height: 50px;
+    /*border: 2px solid #3498db;*/
+}
+
+/* Style du rond qui suit le bord du cercle */
+.dot {
+    width: 15px;
+    height: 15px;
+    /* Position initiale du rond sur le bord du cercle */
+    animation: orbit 2s linear infinite;
+    /* Animation de rotation autour du cercle */
+}
+
+/* Animation de rotation du petit rond autour du cercle */
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateX(25px);
+        /* Position initiale sur le cercle */
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(25px);
+        /* Rotation complète autour du cercle */
+    }
+}
