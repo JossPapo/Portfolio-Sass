@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     background-color: $dark;
+    z-index: 2;
 
     .navbar {
         display: flex;
@@ -11,11 +12,23 @@
         padding-top: 20px;
         padding-bottom: 20px;
 
-        .logo img {
-            padding-left: 15%;
-            max-width: 40%;
-            max-height: 40%;
+        .logo {
+            max-width: 30%;
         }
+
+        .logo img {
+            max-width: 90%;
+            padding-left: 20%;
+            border-radius: 10px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .logo img {
+                max-width: 50%;
+            }
+        }
+
+
 
         .menu {
             padding-right: 10px;

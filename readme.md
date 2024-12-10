@@ -1,8 +1,8 @@
 # Description
 
 Création d'un portfolio.
-Tech: HTML et SASS
+Tech: HTML SASS Javascript
 
 # Détails
 
-Création via séries de Live sur Studi -- Formation DWWM -- 
+Création via séries de Live sur Studi -- Formation DWWM -- 2024
