@@ -2,6 +2,15 @@ body {
   font: 19px/23px Montserrat, sans-serif;
 }
 
+.nav-link {
+  font-size: x-large;
+}
+
+h3 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: small;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -31,6 +40,13 @@ main {
   margin-bottom: 10px;
 }
 
+#go-to-top {
+  position: fixed;
+  bottom: 35px;
+  right: 15px;
+  width: 5%;
+}
+
 .section-display {
   display: flex;
   margin-bottom: 100px;
@@ -51,6 +67,7 @@ main {
   font-size: 30px;
   line-height: 1.1;
   font-weight: 700;
+  text-align: center;
 }
 .section-display .text-content .paragraph {
   font-size: 20px;
@@ -118,7 +135,7 @@ main {
 .competences-icons i:hover,
 .socials i:hover {
   cursor: pointer;
-  color: #949e0b;
+  color: #0aadcd;
   transition: all 0.5s ease;
   transform: scale(1.5);
 }
@@ -141,10 +158,14 @@ main {
   display: inline-block;
   width: 50%;
   text-align: center;
+  box-sizing: content-box;
 }
 .btn a {
   text-decoration: none;
   color: #fff;
+}
+.btn i {
+  font-size: x-large;
 }
 @media screen and (min-width: 768px) {
   .btn {
@@ -158,16 +179,16 @@ main {
   transform: translateY(-10px);
 }
 .btn.btn:hover a {
-  color: #062657;
+  color: #154896;
 }
 .btn.btn-primary {
-  background-color: #062657;
+  background-color: #154896;
   color: #fff;
-  border-color: black;
+  border-color: #081d3d;
 }
 .btn.btn-primary:hover {
   background-color: #fff;
-  color: #062657;
+  color: #154896;
 }
 
 .header-website {
@@ -282,4 +303,9 @@ main {
 }
 .close-btn:hover {
   color: red;
+}
+
+.footer-website {
+  border-top: solid 1px #fff;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

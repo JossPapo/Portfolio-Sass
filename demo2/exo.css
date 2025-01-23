@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./markus-spiske-iar-afB0QQw-unsplash.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.set {
+    background-image: url(./math\ cut.png);
+    background-size: cover;
+    /*background-color: rgba(25, 134, 28, 0.58);*/
+    border-radius: 5px;
+}
+
+h1,
+p {
+    background-color: rgba(2, 21, 3, 0.852);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgb(68, 87, 4);
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    font-size: xx-large;
+    padding: 2%;
+
+}
+
+.math {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+p {
+    width: 70%;
+    margin-bottom: 5%;
+    text-align: center;
+    color: white;
+    padding: 2%;
+}
+
+.set {
+    border: solid 1px black;
+    margin: 2%;
+    width: 50%;
+    /*height: 350px;*/
+    box-shadow: 0 4px 8px rgb(68, 87, 4);
+    padding: 1%;
+    color: white;
+    box-sizing: content-box;
+}
+
+.set h2 {
+    text-align: center;
+}
+
+.question,
+h2 {
+    margin: 5%;
+}
+
+#submit,
+#submitSum,
+#submitP,
+#submitTx {
+    width: 50%;
+    height: 25px;
+    margin: 1%;
+    margin-left: 25%;
+    background-color: rgba(124, 117, 13, 0.92);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(200, 224, 64);
+}
+
+#submit:hover,
+#submitSum:hover,
+#submitP:hover,
+#submitTx:hover {
+    background-color: rgb(12, 11, 0);
+}
+
+.answer {
+    margin-top: 3%;
+}
+
+.nombre1,
+.nombre2 {
+    margin: 2%;
+    margin-left: 15%;
+}
+
+#nb,
+#nb1,
+#nb2,
+#nbP,
+#numberX {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgb(200, 224, 64);
+    margin-left: 2%;
+    background-color: rgba(194, 203, 186, 0.699);
+    color: rgb(40, 38, 38);
+    padding: 1%;
+    font-weight: 800;
+    width: 30%;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: x-large;
+    }
+
+    .set {
+        width: 80%;
+        /*height: 350px;*/
+    }
+}

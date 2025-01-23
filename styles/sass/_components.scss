@@ -20,6 +20,7 @@
             font-size: 30px;
             line-height: 1.1;
             font-weight: 700;
+            text-align: center;
         }
 
         .paragraph {
@@ -42,8 +43,8 @@
             display: flex;
             gap: 5%;
             margin: 10%;
-
         }
+
 
         @media screen and (min-width:768px) {
             .action-div {

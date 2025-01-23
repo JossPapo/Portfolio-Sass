@@ -1,0 +1,189 @@
+<html>
+
+<head>
+  <base href="https://websim.ai/blitz-game" />
+  <title>BLITZ - Helicopter Bombing Game</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #87CEEB;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #gameCanvas {
+      display: block;
+      /*margin: 0 auto;*/
+      margin-top: 5%;
+      margin-left: 30%;
+      border: 2px solid #333;
+    }
+
+    #gameInfo {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <div id="gameInfo">Click to drop bombs. Press ESC to restart.</div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const CANVAS_WIDTH = 800;
+    const CANVAS_HEIGHT = 600;
+    const HELICOPTER_WIDTH = 60;
+    const HELICOPTER_HEIGHT = 30;
+    const COLUMN_WIDTH = 50;
+    const BOMB_SIZE = 10;
+    const HELICOPTER_SPEED = 5;
+    const BOMB_SPEED = 5;
+
+    let helicopter = {
+      x: 0,
+      y: 50,
+      direction: 1
+    };
+
+    let columns = [];
+    let bombs = [];
+    let gameOver = false;
+
+    function initGame() {
+      helicopter = { x: 0, y: 50, direction: 1 };
+      bombs = [];
+      gameOver = false;
+
+      // Generate random columns
+      columns = [];
+      for (let i = 0; i < 10; i++) {
+        columns.push(Math.floor(Math.random() * 8) + 1);
+      }
+    }
+
+    function drawHelicopter() {
+      ctx.fillStyle = '#FF0000';
+      ctx.fillRect(helicopter.x, helicopter.y, HELICOPTER_WIDTH, HELICOPTER_HEIGHT);
+    }
+
+    function drawColumns() {
+      ctx.fillStyle = '#008000';
+      for (let i = 0; i < columns.length; i++) {
+        let height = columns[i] * 50;
+        ctx.fillRect(i * COLUMN_WIDTH, CANVAS_HEIGHT - height, COLUMN_WIDTH, height);
+      }
+    }
+
+    function drawBombs() {
+      ctx.fillStyle = '#000000';
+      bombs.forEach(bomb => {
+        ctx.beginPath();
+        ctx.arc(bomb.x, bomb.y, BOMB_SIZE, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function updateHelicopter() {
+      helicopter.x += HELICOPTER_SPEED * helicopter.direction;
+
+      if (helicopter.x > CANVAS_WIDTH) {
+        helicopter.x = 0;
+        helicopter.y += 50;
+      } else if (helicopter.x < 0) {
+        helicopter.x = CANVAS_WIDTH;
+        helicopter.y += 50;
+      }
+
+      if (helicopter.y >= CANVAS_HEIGHT) {
+        gameOver = true;
+      }
+
+      // Check collision with columns
+      let columnIndex = Math.floor(helicopter.x / COLUMN_WIDTH);
+      if (columnIndex < columns.length) {
+        let columnHeight = columns[columnIndex] * 50;
+        if (CANVAS_HEIGHT - columnHeight <= helicopter.y + HELICOPTER_HEIGHT) {
+          gameOver = true;
+        }
+      }
+    }
+
+    function updateBombs() {
+      bombs.forEach((bomb, index) => {
+        bomb.y += BOMB_SPEED;
+        if (bomb.y > CANVAS_HEIGHT) {
+          bombs.splice(index, 1);
+        } else {
+          let columnIndex = Math.floor(bomb.x / COLUMN_WIDTH);
+          if (columnIndex < columns.length) {
+            let columnHeight = columns[columnIndex] * 50;
+            if (CANVAS_HEIGHT - columnHeight <= bomb.y) {
+              columns[columnIndex]--;
+              if (columns[columnIndex] < 0) columns[columnIndex] = 0;
+              bombs.splice(index, 1);
+            }
+          }
+        }
+      });
+    }
+
+    function checkWin() {
+      return columns.every(column => column === 0);
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+      drawColumns();
+      drawHelicopter();
+      drawBombs();
+
+      if (!gameOver) {
+        updateHelicopter();
+        updateBombs();
+
+        if (checkWin()) {
+          gameOver = true;
+          ctx.fillStyle = '#000000';
+          ctx.font = '48px Arial';
+          ctx.fillText('You Win!', CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2);
+        }
+      }
+
+      if (gameOver && !checkWin()) {
+        ctx.fillStyle = '#000000';
+        ctx.font = '48px Arial';
+        ctx.fillText('Game Over', CANVAS_WIDTH / 2 - 100, CANVAS_HEIGHT / 2);
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    canvas.addEventListener('click', () => {
+      if (!gameOver) {
+        bombs.push({
+          x: helicopter.x + HELICOPTER_WIDTH / 2,
+          y: helicopter.y + HELICOPTER_HEIGHT
+        });
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        initGame();
+      }
+    });
+
+    initGame();
+    gameLoop();
+  </script>
+</body>
+
+</html>
